@@ -7,6 +7,15 @@ The tool consists of a microcontroller (Atmel ATtiny 84) and 5 optocouplers. The
 The amount of offset is determined by the user through the camera controller and guiding speed settings on the Synscan controller.
 The tool will send a signal to the mount as long as the input is high.
 Dithering follows an outward spiraling pattern (e.g. DEC+, RA+, DEC-, DEC-, RA-, RA-, DEC+, DEC+, DEC+, etc)
+# Hardware
+Microcontroller ATtiny84
+Input (from camera controller): PA7
+Output (to mounts ST4 port): PA0 ... PA3
+Output to camera: PA5
+Optional output to indicator LED: PA4
+ST4 and camera outputs are electrically isolated through the use of optocouplers.
+If Synscan Handcontroller is used as camera controller, power may be taken from the RJ11 connector. This is 12 V, a voltage converter (5 V) is included in the schematics. If another camera controller is used, power must be provided by other means (e.g. 3.7 V LiPo battery). In this case, the voltage regulator may be omitted.
+Connection from the tool to the mount is not critical. If wires are mixed, the pattern will not be a spiral.
 # Theory
 It is recommended to dither approximately 15 pixels.
 The user has to calculate how many arcseconds, which speed and which time to dither.
